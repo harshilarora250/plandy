@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plandy - Your study planner</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="left">
+            <img src="logo.png" alt="Logo" class="logo" onerror="this.style.display='none'">
+            <span class="brand">PLANDY</span>
+        </div>
+        <nav class="right">
+            <button class="nav-btn active" data-view="home">Home</button>
+            <button class="nav-btn active" data-view="tasks">Tasks</button>
+            <button class="nav-btn active" data-view="calendar">Calendar</button>
+            <button class="nav-btn active" data-view="pomodoro">Pomodoro</button>
+            <button class="nav-btn active" data-view="stats">Progress</button>
+            <button id="themeToggle" class="icon-btn" title="Toggle dark mode">🌙</button>
+        </nav>
+    </header>
+
+<main class="container">
+    <!--HOME-->
+    <section id="view-home" class="view active">
+        <div class="grid-top">
+            <div class="card streak-card">
+                <h3>🔥Streak</h3>
+                <p id="streakCount" class="big-number">0</p>
+                <p class="muted">days in a row completed tasks</p>
+            </div>
+            <div class="card progress-card">
+                <h3>Progress Today</h3>
+                <div class="progress-bar"><div id="todayProgressFill" class="progress-fill"></div></div>
+                <p id="todayProgressText" class="muted">0 / 0 tasks done</p>
+            </div>
+            <div class="card upcoming-card">
+                <h3>Next up</h3>
+                <ul id="upcomingList" class="mini-list"></ul>
+            </div>
+        </div>
+
+        <h2>Add Task</h2>
+        <form id="taskForm">
+            <input type="text" id="taskTitle" placeholder="Task title" required>
+            <input type="text" id="taskSubject" placeholder="Subject/Class (Optional)">
+            <input type="date" id="taskDate" required>
+            <select id="taskPriority">
+                <option value="low">Low priority</option>
+                <option value="medium" selected>Medium priority</option>
+                <option value="high">High priority</option>
+            </select>
+            <button type="submit">Add Task</button>
+        </form>
+
+        <div class="list-header">
+            <h2>Tasks</h2>
+            <div class="filters">
+                <select id="filterPriority">
+                    <option value="all">All priorities</option>
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
+                <select id="filterStatus">
+                    <option value="all">All</option>
+                    <option value="active">Active</option>
+                    <option value="completed">Completed</option>
+                </select>
+                <select id="sortBy">
+                    <option value="date">Sort: Due Date</option>
+                    <option value="priority">Sort: Priority</option>
+                </select>
+            </div>
+        </div>
+        <ul id="taskList"></ul>
+    </section>
+</main>
+    
+</body>
+</html>

@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    font-family: Impact, sans-serif;
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+}
+.logo {
+    height: 50px;
+    width: auto;
+}
+
+.center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.center h1 {
+    margin: 0;
+}
+.right {
+    display: flex;
+    gap: 20px;
+}
+.right a {
+    text-decoration: none;
+    color: black;
+}
+
+form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+input, button {
+    padding: 8px;
+    font-size: 14px;
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+li {
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+}
