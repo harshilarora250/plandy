@@ -9,37 +9,38 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="navbar">
-        <div class="left">
-            <img src="logo.png" alt="Logo" class="logo" onerror="this.style.display='none'">
-            <span class="brand">PLANDY</span>
-        </div>
-        <nav class="right">
-            <button class="nav-btn active" data-view="home">Home</button>
-            <button class="nav-btn active" data-view="tasks">Tasks</button>
-            <button class="nav-btn active" data-view="calendar">Calendar</button>
-            <button class="nav-btn active" data-view="pomodoro">Pomodoro</button>
-            <button class="nav-btn active" data-view="stats">Progress</button>
-            <button id="themeToggle" class="icon-btn" title="Toggle dark mode">🌙</button>
-        </nav>
-    </header>
+<header class="navbar">
+    <div class="left">
+        <img src="logo.png" alt="Logo" class="logo" onerror="this.style.display='none'">
+        <span class="brand">PLANDY</span>
+    </div>
+    <nav class="right">
+        <button class="nav-btn active" data-view="home">Home</button>
+        <button class="nav-btn" data-view="tasks">Tasks</button>
+        <button class="nav-btn" data-view="calendar">Calendar</button>
+        <button class="nav-btn" data-view="pomodoro">Pomodoro</button>
+        <button class="nav-btn" data-view="stats">Progress</button>
+        <button id="themeToggle" class="icon-btn" title="Toggle dark mode">🌙</button>
+    </nav>
+</header>
 
 <main class="container">
-    <!--HOME-->
+
+    <!-- HOME VIEW -->
     <section id="view-home" class="view active">
         <div class="grid-top">
             <div class="card streak-card">
-                <h3>🔥Streak</h3>
+                <h3>🔥 Streak</h3>
                 <p id="streakCount" class="big-number">0</p>
-                <p class="muted">days in a row completed tasks</p>
+                <p class="muted">days in a row completing tasks</p>
             </div>
             <div class="card progress-card">
-                <h3>Progress Today</h3>
+                <h3>✅ Progress Today</h3>
                 <div class="progress-bar"><div id="todayProgressFill" class="progress-fill"></div></div>
                 <p id="todayProgressText" class="muted">0 / 0 tasks done</p>
             </div>
             <div class="card upcoming-card">
-                <h3>Next up</h3>
+                <h3>⏰ Next Up</h3>
                 <ul id="upcomingList" class="mini-list"></ul>
             </div>
         </div>
@@ -47,12 +48,12 @@
         <h2>Add Task</h2>
         <form id="taskForm">
             <input type="text" id="taskTitle" placeholder="Task title" required>
-            <input type="text" id="taskSubject" placeholder="Subject/Class (Optional)">
+            <input type="text" id="taskSubject" placeholder="Subject / Class (optional)">
             <input type="date" id="taskDate" required>
             <select id="taskPriority">
-                <option value="low">Low priority</option>
-                <option value="medium" selected>Medium priority</option>
-                <option value="high">High priority</option>
+                <option value="low">Low Priority</option>
+                <option value="medium" selected>Medium Priority</option>
+                <option value="high">High Priority</option>
             </select>
             <button type="submit">Add Task</button>
         </form>
@@ -61,7 +62,7 @@
             <h2>Tasks</h2>
             <div class="filters">
                 <select id="filterPriority">
-                    <option value="all">All priorities</option>
+                    <option value="all">All Priorities</option>
                     <option value="high">High</option>
                     <option value="medium">Medium</option>
                     <option value="low">Low</option>
@@ -80,24 +81,27 @@
         <ul id="taskList"></ul>
     </section>
 
+    <!-- TASKS VIEW (same data, focused list) -->
     <section id="view-tasks" class="view">
         <h2>All Tasks</h2>
         <ul id="taskListFull"></ul>
     </section>
 
+    <!-- CALENDAR VIEW -->
     <section id="view-calendar" class="view">
-        <div class="calednar-header">
-            <button id="prevMonth" class="icon-btn">⬅️</button>
+        <div class="calendar-header">
+            <button id="prevMonth" class="icon-btn">←</button>
             <h2 id="calendarMonthLabel"></h2>
-            <button id="nextMonth" class="icon-btn">➡️</button>
+            <button id="nextMonth" class="icon-btn">→</button>
         </div>
         <div id="calendarGrid" class="calendar-grid"></div>
-        <div id="caledarDayTasks" class="card" style="margin-top:16px; display:none;">
+        <div id="calendarDayTasks" class="card" style="margin-top:16px; display:none;">
             <h3 id="calendarDayTitle"></h3>
             <ul id="calendarDayTaskList" class="mini-list"></ul>
         </div>
     </section>
 
+    <!-- POMODORO VIEW -->
     <section id="view-pomodoro" class="view">
         <div class="pomodoro-wrap">
             <h2>Pomodoro Timer</h2>
@@ -112,17 +116,17 @@
                 <button id="timerPause" disabled>Pause</button>
                 <button id="timerReset">Reset</button>
             </div>
-            <p class="muted">Pomodoro timers completed today: <span id="pomodoroCount">0</span></p>
+            <p class="muted">Pomodoros completed today: <span id="pomodoroCount">0</span></p>
         </div>
     </section>
 
+    <!-- PROGRESS / STATS VIEW -->
     <section id="view-stats" class="view">
         <h2>Progress & Stats</h2>
         <div class="grid-top">
             <div class="card">
                 <h3>Overall Completion</h3>
-                <div class="progress-bar"><div id="overallProgressFill" class="progress-fill"></div>
-
+                <div class="progress-bar"><div id="overallProgressFill" class="progress-fill"></div></div>
                 <p id="overallProgressText" class="muted">0%</p>
             </div>
             <div class="card">
@@ -130,20 +134,21 @@
                 <p id="streakCount2" class="big-number">0</p>
             </div>
             <div class="card">
-                <h3>Total Pomodoros</h3>
+                <h3>🍅 Total Pomodoros</h3>
                 <p id="totalPomodoros" class="big-number">0</p>
             </div>
+        </div>
 
-            <div class="card">
-                <h3>By Priority</h3>
-                <p id="priorityBreakdown" class="big-number">0</p>
-            </div>
-            <div class="card">
-                <h3>Data Export</h3>
-                <p class="muted">Export your tasks and stats as a JSON file (backup) or CSV (spreadsheet).</p>
-            </div>
+        <div class="card">
+            <h3>By Priority</h3>
+            <div id="priorityBreakdown"></div>
+        </div>
+
+        <div class="card">
+            <h3>Data Export</h3>
+            <p class="muted">Export your tasks and stats as a JSON file (backup) or CSV (spreadsheet).</p>
             <div class="export-buttons">
-                <button id="exportJson">Export Json</button>
+                <button id="exportJson">Export JSON</button>
                 <button id="exportCsv">Export CSV</button>
                 <label class="import-label">
                     Import JSON
@@ -152,7 +157,9 @@
             </div>
         </div>
     </section>
+
 </main>
+
 <div id="toast" class="toast"></div>
 
 <script src="script.js"></script>

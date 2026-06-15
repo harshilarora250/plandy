@@ -65,7 +65,7 @@ body {
 }
 
 .nav-btn {
-    background-color: none;
+    background: none;
     border: none;
     color: var(--text);
     padding: 8px 12px;
@@ -95,7 +95,7 @@ body {
 }
 
 .view { display: none; }
-.view:active { display: block; }
+.view.active { display: block; }
 
 h2 { margin-top: 0; }
 
@@ -204,7 +204,7 @@ li.task-item.priority-low { border-left-color: var(--low);}
 
 .task-main { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 200px;}
 .task-info .title { font-weight: 600; }
-.task-info .meta { font-size:0.83m; color: var(--muted); }
+.task-info .meta { font-size:0.83rem; color: var(--muted); }
 .task-actions { display: flex; gap: 6px; }
 .task-actions button {
     background: var(--bg);
@@ -256,7 +256,7 @@ li.task-item.priority-low { border-left-color: var(--low);}
 .dot.high { background: var(--high); }
 .dot.medium { background: var(--medium); }
 .dot.low { background: var(--low); }
-.calendar-weekeday { text-align: center; font-weight: 700; font-size: 0.8rem; color: var(--muted); padding: 4px 0;}
+.calendar-weekday { text-align: center; font-weight: 700; font-size: 0.8rem; color: var(--muted); padding: 4px 0;}
 
 /*Pomodoro*/
 .pomodoro-wrap { text-align: center; }
