@@ -115,7 +115,46 @@
             <p class="muted">Pomodoro timers completed today: <span id="pomodoroCount">0</span></p>
         </div>
     </section>
+
+    <section id="view-stats" class="view">
+        <h2>Progress & Stats</h2>
+        <div class="grid-top">
+            <div class="card">
+                <h3>Overall Completion</h3>
+                <div class="progress-bar"><div id="overallProgressFill" class="progress-fill"></div>
+
+                <p id="overallProgressText" class="muted">0%</p>
+            </div>
+            <div class="card">
+                <h3>🔥 Current Streak</h3>
+                <p id="streakCount2" class="big-number">0</p>
+            </div>
+            <div class="card">
+                <h3>Total Pomodoros</h3>
+                <p id="totalPomodoros" class="big-number">0</p>
+            </div>
+
+            <div class="card">
+                <h3>By Priority</h3>
+                <p id="priorityBreakdown" class="big-number">0</p>
+            </div>
+            <div class="card">
+                <h3>Data Export</h3>
+                <p class="muted">Export your tasks and stats as a JSON file (backup) or CSV (spreadsheet).</p>
+            </div>
+            <div class="export-buttons">
+                <button id="exportJson">Export Json</button>
+                <button id="exportCsv">Export CSV</button>
+                <label class="import-label">
+                    Import JSON
+                    <input type="file" id="importFile" accept=".json" hidden>
+                </label>
+            </div>
+        </div>
+    </section>
 </main>
-    
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
 </body>
 </html>
