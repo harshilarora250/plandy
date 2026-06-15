@@ -79,6 +79,42 @@
         </div>
         <ul id="taskList"></ul>
     </section>
+
+    <section id="view-tasks" class="view">
+        <h2>All Tasks</h2>
+        <ul id="taskListFull"></ul>
+    </section>
+
+    <section id="view-calendar" class="view">
+        <div class="calednar-header">
+            <button id="prevMonth" class="icon-btn">⬅️</button>
+            <h2 id="calendarMonthLabel"></h2>
+            <button id="nextMonth" class="icon-btn">➡️</button>
+        </div>
+        <div id="calendarGrid" class="calendar-grid"></div>
+        <div id="caledarDayTasks" class="card" style="margin-top:16px; display:none;">
+            <h3 id="calendarDayTitle"></h3>
+            <ul id="calendarDayTaskList" class="mini-list"></ul>
+        </div>
+    </section>
+
+    <section id="view-pomodoro" class="view">
+        <div class="pomodoro-wrap">
+            <h2>Pomodoro Timer</h2>
+            <div class="pomodoro-modes">
+                <button class="mode-btn active" data-mode="focus" data-mins="25">Focus (25)</button>
+                <button class="mode-btn" data-mode="short" data-mins="5">Short Break (5)</button>
+                <button class="mode-btn" data-mode="long" data-mins="15">Long Break (15)</button>
+            </div>
+            <div class="timer-display" id="timerDisplay">25:00</div>
+            <div class="timer-controls">
+                <button id="timerStart">Start</button>
+                <button id="timerPause" disabled>Pause</button>
+                <button id="timerReset">Reset</button>
+            </div>
+            <p class="muted">Pomodoro timers completed today: <span id="pomodoroCount">0</span></p>
+        </div>
+    </section>
 </main>
     
 </body>
