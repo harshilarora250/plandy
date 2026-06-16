@@ -89,3 +89,43 @@ function initTaskForm() {
 }
 
 /* ------ Filters ------ */
+function initFilters() {
+    [filterPriority, filterStatus, sortBy].forEach(el => {
+        el.addEventListener("change", renderAll);
+    });
+}
+
+/* ------ Save ------ */
+function saveTasks() {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+function savePomodoro() {
+    localStorage.setItem("pomodoroCount", JSON.stringify(pomodoroCount));
+}
+function saveStreak() {
+    localStorage.setItem("streakData", JSON.stringify(streakData))
+}
+
+/* ------ Helpers ------ */
+function todayStr () {
+    const d = new Date();
+    return d.toISOString().slice(0,10);
+}
+function getFilteredSortedTasks() {
+    let list = [...tasks];
+
+    if (filterPriority.value !== "all") {
+        list = list.filter(t => t.priority === filterPriority.value);
+    } else if (filterStatus.value === "active") {
+        list = list.filter(t => t.completed);
+    }
+
+    if (sortBy.value === "priority") {
+        const order = { high: 0, medium: 1, low: 2 };
+        list.sort((a,b) => order[a.priority] - order[b.priority] || a.date.localeCompare(b.date));
+    } else {
+        list.sort((a,b) => a.date.localeCompare(b.date));
+    }
+
+    return list;
+}
