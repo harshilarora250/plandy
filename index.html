@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plandy - Your study planner</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,11 +15,11 @@
         <span class="brand">PLANDY</span>
     </div>
     <nav class="right">
-        <button class="nav-btn active" data-view="home">Home</button>
-        <button class="nav-btn" data-view="tasks">Tasks</button>
-        <button class="nav-btn" data-view="calendar">Calendar</button>
-        <button class="nav-btn" data-view="pomodoro">Pomodoro</button>
-        <button class="nav-btn" data-view="stats">Progress</button>
+        <button class="nav-btn active" data-view="home" title="Home">Home</button>
+        <button class="nav-btn" data-view="tasks" title="Tasks">Tasks</button>
+        <button class="nav-btn" data-view="calendar" title="Calendar">Calendar</button>
+        <button class="nav-btn" data-view="pomodoro" title="Pomodoro">Pomodoro</button>
+        <button class="nav-btn" data-view="stats" title="Progress">Progress</button>
         <button id="themeToggle" class="icon-btn" title="Toggle dark mode">🌙</button>
     </nav>
 </header>
@@ -55,7 +55,7 @@
                 <option value="medium" selected>Medium Priority</option>
                 <option value="high">High Priority</option>
             </select>
-            <button type="submit">Add Task</button>
+            <button title="Add Task" type="submit">Add Task</button>
         </form>
 
         <div class="list-header">
