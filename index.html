@@ -47,10 +47,10 @@
 
         <h2>Add Task</h2>
         <form id="taskForm">
-            <input type="text" id="taskTitle" placeholder="Task title" required>
-            <input type="text" id="taskSubject" placeholder="Subject / Class (optional)">
-            <input type="date" id="taskDate" required>
-            <select id="taskPriority">
+            <input title="Task Title" type="text" id="taskTitle" placeholder="Task title" required>
+            <input title="Subect/Class" type="text" id="taskSubject" placeholder="Subject / Class (optional)">
+            <input title="Task Date" type="date" id="taskDate" required>
+            <select title="Priority" id="taskPriority">
                 <option value="low">Low Priority</option>
                 <option value="medium" selected>Medium Priority</option>
                 <option value="high">High Priority</option>
@@ -61,18 +61,18 @@
         <div class="list-header">
             <h2>Tasks</h2>
             <div class="filters">
-                <select id="filterPriority">
+                <select title="Priority" id="filterPriority">
                     <option value="all">All Priorities</option>
                     <option value="high">High</option>
                     <option value="medium">Medium</option>
                     <option value="low">Low</option>
                 </select>
-                <select id="filterStatus">
+                <select title="Filter" id="filterStatus">
                     <option value="all">All</option>
                     <option value="active">Active</option>
                     <option value="completed">Completed</option>
                 </select>
-                <select id="sortBy">
+                <select title="Sort By" id="sortBy">
                     <option value="date">Sort: Due Date</option>
                     <option value="priority">Sort: Priority</option>
                 </select>
