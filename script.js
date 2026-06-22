@@ -1,3 +1,5 @@
+const { createElement } = require("react");
+
 /*------State-----*/
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 let pomodoroCount = JSON.parse(localStorage.getItem("pomodoroCount")) || {};
@@ -140,3 +142,52 @@ function renderAll() {
     renderCalendar();
 }
 
+function renderTasks() {
+    const list = getFilteredSortedTasks();
+
+    taskList.innerHTML = "";
+    taskListFull.innerHTML = "";
+
+    list.forEach(task => {
+        const li = createTaskElement(task);
+
+        taskList.appendChild(li);
+
+        const li2 = createTaskElement(task);
+        taskListFull.appendChild(li2);
+    });
+}
+
+function createTaskElement(task) {
+    const li = document.createElement("li");
+
+    li.className = `task ${task.priority}`;
+    if (task.completed) li.classList.add("completed");
+
+    li.innerHTML = `
+    <div class="task-info">
+    <h3>${task.title}</h3>
+    <p>${task.subject || "No subject"}</p>
+    <small>${task.date}</small>
+    </div>
+    
+    <div class="task-actions">
+    <button class="complete-btn">
+    ${task.completed ? "Undo" : "Done"}
+    </button>
+
+    <button class="delete-btn>
+    Delete
+    </button>"
+    </div>`;
+
+    li.querySelector(".delete-btn").addEventListener("click", () => {
+        tasks = tasks.filter(t => t.id !== task.id);
+
+        saveTasks();
+        renderAll();
+
+        showToast("Task Deleted");
+    });
+    return li;
+}
