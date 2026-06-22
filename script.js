@@ -49,7 +49,7 @@ function initNav () {
     document.querySelectorAll(".nav-btn").forEach(btn => {
         btn.addEventListener("click", () => {
             document.querySelectorAll(".nav-btn").forEach(b => b.classList.remove("active"));
-            documen.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
+            document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
             btn.classList.add("active");
             document.getElementById("view-" + btn.dataset.view).classList.add("active");
             if (btn.dataset.view === "calendar") renderCalendar();
@@ -116,7 +116,9 @@ function getFilteredSortedTasks() {
 
     if (filterPriority.value !== "all") {
         list = list.filter(t => t.priority === filterPriority.value);
-    } else if (filterStatus.value === "active") {
+    } if (filterStatus.value === "active") {
+        list = list.filter(t => !t.completed);
+    } else if (filterStatus.value === "completeted") {
         list = list.filter(t => t.completed);
     }
 
@@ -129,3 +131,12 @@ function getFilteredSortedTasks() {
 
     return list;
 }
+
+/*------- Render -------*/
+function renderAll() {
+    renderTasks();
+    renderHome();
+    renderStats();
+    renderCalendar();
+}
+
