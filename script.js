@@ -263,3 +263,57 @@ function updateStreak() {
 }
 
 /*-----Stats-----*/
+function renderStats() {
+
+    const completed = 
+    task.filter(t => t.completed).length;
+
+    const total = tasks.length;
+
+    const percent = 
+    total ? Math.round(completed/total*100) : 0;
+
+    document.getElementById("overallProgressFill")
+    .style.width = percent + "%";
+
+    document.getElementById("overallProgressText")
+    .textContent = percent + "%";
+
+    document.getElementById("streakCount2")
+    .textContent = streakData.count;
+
+    const totalPomos = Object.values(pomodoroCount)
+    .reduce((a,b)=>a+b,0);
+
+    document.getElementById("totalPomodoros")
+    .textContent = totalPomos;
+
+    const priorities = {
+        high:0,
+        medium:0,
+        low:0
+    };
+
+    tasks.forEach(t => {
+        priorities[t.priority]++;
+    });
+
+    document.getElementById(
+        "priorityBreakdown"
+    ).innerHTML = `
+    <p>High: ${priorities.high}</p>
+    <p>Medium: ${priorities.medium}</p>
+    <p>Low: ${priorities.low}</p>`;
+}
+/*-----Toast-----*/
+function showToast(message) {
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2500);
+}
+/*-----Calendar-----*/
