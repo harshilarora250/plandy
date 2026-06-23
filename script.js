@@ -238,3 +238,28 @@ function renderHome() {
 }
 
 /*-----Streak-----*/
+function updateStreak() {
+    
+    const today = todayStr();
+
+    if (streakData.lastDate === today) return;
+
+    const yesterday = new Date();
+
+    yesterday.setDate(yesterday.getDate() - 1);
+
+    const y =
+    yesterday.toISOString().slice(0,10);
+
+    if (streakData.lastDate === y) {
+        streakData.count++;
+    } else {
+        streakData.count = 1;
+    }
+
+    streakData.lastDate = today;
+
+    saveStreak();
+}
+
+/*-----Stats-----*/
