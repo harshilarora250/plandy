@@ -33,5 +33,9 @@ Just go on https://plandy.vercel.app/
 ### Option 2 
 Simply curl the github repo, and then use VS Code extension: Live Server or npx serve command in the project terminal, or python -m http.server then run localhost:8000 in your browser. 
 
+## AI Declaration
+
+In Plandy, AI was partially used for the script.js file.
+
 ## Contact
 If you have any questions or concerns, you can DM me on the HackClub slack: @elipseday.
