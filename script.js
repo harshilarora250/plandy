@@ -191,3 +191,50 @@ function createTaskElement(task) {
     });
     return li;
 }
+
+/*------Home Dashboard------*/
+
+function renderHome() {
+    const completedToday = task.filter(
+        t => t.completed && t.date === todayStr()
+    ).length;
+
+    const totalToday = task.filter(
+        t => t.date === todayStr()
+    ).length;
+
+    const percent = totalToday
+    ? (completedToday / totalToday) * 100
+    : 0;
+
+    document.getElementById("todayProgressFill")
+    .stylewidth = percent + "%";
+
+    document.getElementById("todayProgressText")
+    .textContent = 
+    `${completedToday} / ${totalToday} tasks done`;
+
+    document.getElementById("streakCount")
+    .textContent = streakData.count;
+
+    const upcoming = tasks
+    .filter(t => !t.completed)
+    .sort((a,b)=>a.date.localeCompare(b.date))
+    .slice(0,3);
+
+    const ul = document.getElementById("upcomingList");
+
+    ul.innerHTML = "";
+
+    upcoming.forEach(t => {
+
+        const li = document.createElement("li");
+
+        li.textContent = 
+        `${t.title} (${t.date})`;
+
+        ul.appendChild(li);
+    });
+}
+
+/*-----Streak-----*/
